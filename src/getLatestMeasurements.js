@@ -56,8 +56,6 @@ async function getLatestMeasurements(url, city) {
 }
 
 function displayTemperature(temperature) {
-  console.log(temperature.getValue());
-
   let div = document.getElementById("latestTemperature");
   div.innerHTML = "";
 

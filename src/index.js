@@ -1,5 +1,6 @@
 import getForecast from "./getForecast";
 import getLatestMeasurements from "./getLatestMeasurements";
+import getMinTemperature from "./getMinTemperature";
 
 const city = document.querySelector("#city");
 const url = "http://localhost:8080";
@@ -15,4 +16,5 @@ async function selectCity() {
 
   getForecast(url, selectedCity);
   getLatestMeasurements(url, selectedCity);
+  getMinTemperature(url, selectedCity);
 }
