@@ -19,3 +19,5 @@ function TemperaturePrediction(time, place, max, min, type, unit) {
 
   return { ...weatherPrediction, convertToF, convertToC };
 }
+
+export default TemperaturePrediction;

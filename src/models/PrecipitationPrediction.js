@@ -38,3 +38,5 @@ function PrecipitationPrediction(
     convertToMM,
   };
 }
+
+export default PrecipitationPrediction;
