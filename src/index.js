@@ -51,8 +51,11 @@ function displayTemperatures(temperatures) {
   let div = document.getElementById("temperatures");
   temperatures.map((temperature) => {
     let p = document.createElement("p");
-    p.textContent = temperature.getTime();
-    " " + temperature.getValue() + " " + temperature.getUnit();
+    const date = new Date(temperature.getTime());
+    p.textContent = `${date.getMonth() + 1}/${date.getDate()} 
+      ${date.toTimeString().slice(0, 5)} >>  
+      ${temperature.getValue()} ${temperature.getUnit()}  
+      `;
     div.appendChild(p);
   });
 }
