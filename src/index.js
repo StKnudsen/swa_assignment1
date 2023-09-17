@@ -3,6 +3,7 @@ import getLatestMeasurements from "./getLatestMeasurements";
 import getMinTemperature from "./getMinTemperature";
 import getMaxTemperature from "./getMaxTemperature";
 import getTotalPrecipitation from "./getTotalPrecipitation";
+import getAverageWindSpeeds from "./getAverageWindSpeeds";
 
 const city = document.querySelector("#city");
 const url = "http://localhost:8080";
@@ -21,4 +22,5 @@ async function selectCity() {
   getMinTemperature(url, selectedCity);
   getMaxTemperature(url, selectedCity);
   getTotalPrecipitation(url, selectedCity);
+  getAverageWindSpeeds(url, selectedCity);
 }
