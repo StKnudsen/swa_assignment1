@@ -44,7 +44,6 @@ async function getForecast(url, city) {
     }
 
     if (item.type === "wind speed") {
-      console.log(item);
       windSpeeds.push(
         WindPrediction(
           item.time,
