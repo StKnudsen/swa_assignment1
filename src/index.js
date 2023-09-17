@@ -1,4 +1,5 @@
 import getForecast from "./getForecast";
+import getLatestMeasurements from "./getLatestMeasurements";
 
 const city = document.querySelector("#city");
 const url = "http://localhost:8080";
@@ -12,6 +13,6 @@ async function selectCity() {
   // Show selected city
   document.getElementById("selectedCity").innerHTML = selectedCity;
 
-  // forecast
   getForecast(url, selectedCity);
+  getLatestMeasurements(url, selectedCity);
 }
