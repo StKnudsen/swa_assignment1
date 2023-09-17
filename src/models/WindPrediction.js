@@ -31,3 +31,5 @@ function WindPrediction(time, place, max, min, type, unit, directions) {
     convertToMS,
   };
 }
+
+export default WindPrediction;
