@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, "src/index.js"),
     oldschool: path.resolve(__dirname, "src/oldSchool.js"),
+    senddata: path.resolve(__dirname, "src/sendData.js"),
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -50,6 +51,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "oldSchool.html",
       template: "src/oldSchool.html",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "sendData.html",
+      template: "src/sendData.html",
     }),
   ],
 };

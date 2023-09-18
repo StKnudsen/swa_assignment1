@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather assignment 1</title>
+  </head>
+  <body>
+    
+<div class="topnav">
+  <a href="./index.html">Fetch request version </a>
+  <a href="./oldSchool.html"> XML Request Version</a>
+  <a href="./sendData.html"> Send data</a>
+
+</div> 
+
+    <h1>Weather assignment 1</h1>
+
+    <form id="temperatureform">
+  Reporting for city: <br>
+  <input type="radio" id="horsens" name="city" value="horsens">
+  <label for="horsens">Horsens</label><br>
+  <input type="radio" id="aarhus" name="city" value="aarhus">
+  <label for="aarhus">Aarhus</label><br>
+  <input type="radio" id="copenhagen" name="city" value="copenhagen">
+  <label for="copenhagen">Copenhagen</label><br>
+  <input type="radio" id="odder" name="city" value="odder">
+  <label for="odder">Odder</label>
+<br>
+<label for="time">Time of measurement:</label><br>
+<input type="datetime-local" id="time" name="time"><br>
+      <label for="temperature">Temperature measurement:</label><br>
+      <input type="number" id="temperature" name="temperature"><br>
+    <input type="radio" id="celcius" name="temp_unit" value="celcius">
+    <label for="celcius">Celcius</label><br>
+    <input type="radio" id="farenheit" name="temp_unit" value="farenheit">
+  <label for="farenheit">Farenheit</label><br>
+
+  <input type="submit" id="submit" value="submit">
+</form> 
+  
+  </body>
+</html>
