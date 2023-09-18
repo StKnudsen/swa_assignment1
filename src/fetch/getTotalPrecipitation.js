@@ -1,4 +1,4 @@
-import Precipitation from "./models/Precipitation";
+import Precipitation from "../models/Precipitation";
 
 async function getTotalPrecipitation(url, city) {
   let precipitations = [];

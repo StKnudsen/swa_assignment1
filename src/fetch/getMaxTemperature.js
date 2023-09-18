@@ -1,6 +1,6 @@
-import Temperature from "./models/Temperature";
+import Temperature from "../models/Temperature";
 
-async function getMinTemperature(url, city) {
+async function getMaxTemperature(url, city) {
   let temperatures = [];
   let measurements = [];
   let unit = "";
@@ -29,19 +29,19 @@ async function getMinTemperature(url, city) {
     unit = temp.getUnit();
   }
 
-  displayMinTemperature(measurements, unit);
+  displayMaxTemperature(measurements, unit);
 }
 
-function displayMinTemperature(measurements, unit) {
-  let div = document.getElementById("minTemperature");
+function displayMaxTemperature(measurements, unit) {
+  let div = document.getElementById("maxTemperature");
   div.innerHTML = "";
 
   let p = document.createElement("p");
 
-  p.textContent = `Minimum temperature from the last 24 hours is: ${Math.min(
+  p.textContent = `Maximum temperature from the last 24 hours is: ${Math.max(
     ...measurements
   )} ${unit}`;
   div.appendChild(p);
 }
 
-export default getMinTemperature;
+export default getMaxTemperature;

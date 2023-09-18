@@ -1,6 +1,6 @@
-import Temperature from "./models/Temperature";
-import Precipitation from "./models/Precipitation";
-import Wind from "./models/Wind";
+import Temperature from "../models/Temperature";
+import Precipitation from "../models/Precipitation";
+import Wind from "../models/Wind";
 
 async function getLatestMeasurements(url, city) {
   let temperatures = [];
