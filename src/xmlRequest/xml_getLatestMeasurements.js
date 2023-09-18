@@ -7,52 +7,60 @@ async function getLatestMeasurements(url, city) {
   let precipitations = [];
   let windSpeeds = [];
 
-  const result = await fetch(`${url}/data/${city}`, {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-    },
-  });
+  function reqListener() {
+    console.log(this.responseText);
+  }
 
-  const json = await result.json();
+  const request = new XMLHttpRequest();
+  request.addEventListener("load", reqListener);
+  request.open("GET", `${url}/data/${city}`);
+  request.responseType = "text";
+  request.onload = () => {
+    if (request.readyState === request.DONE && request.status === 200) {
+      const result = request.response;
+      const json = JSON.parse(result);
 
-  json.map((item) => {
-    if (item.type === "temperature") {
-      temperatures.push(
-        Temperature(item.time, item.place, item.value, item.type, item.unit)
-      );
+      json.map((item) => {
+        if (item.type === "temperature") {
+          temperatures.push(
+            Temperature(item.time, item.place, item.value, item.type, item.unit)
+          );
+        }
+
+        if (item.type === "precipitation") {
+          precipitations.push(
+            Precipitation(
+              item.time,
+              item.place,
+              item.value,
+              item.type,
+              item.unit,
+              item.precipitation_type
+            )
+          );
+        }
+
+        if (item.type === "wind speed") {
+          windSpeeds.push(
+            Wind(
+              item.time,
+              item.place,
+              item.value,
+              item.type,
+              item.unit,
+              item.direction
+            )
+          );
+        }
+      });
+
+      displayTemperature(temperatures.pop());
+      displayPrecipitation(precipitations.pop());
+      displayWind(windSpeeds.pop());
     }
+  };
 
-    if (item.type === "precipitation") {
-      precipitations.push(
-        Precipitation(
-          item.time,
-          item.place,
-          item.value,
-          item.type,
-          item.unit,
-          item.precipitation_type
-        )
-      );
-    }
-
-    if (item.type === "wind speed") {
-      windSpeeds.push(
-        Wind(
-          item.time,
-          item.place,
-          item.value,
-          item.type,
-          item.unit,
-          item.direction
-        )
-      );
-    }
-  });
-
-  displayTemperature(temperatures.pop());
-  displayPrecipitation(precipitations.pop());
-  displayWind(windSpeeds.pop());
+  request.send();
 }
 
 function displayTemperature(temperature) {

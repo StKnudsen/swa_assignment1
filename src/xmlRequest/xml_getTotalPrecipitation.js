@@ -5,38 +5,46 @@ async function getTotalPrecipitation(url, city) {
   let measurements = [];
   let unit = "mm";
 
-  const result = await fetch(`${url}/data/${city}`, {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-    },
-  });
-
-  const json = await result.json();
-
-  json.map((item) => {
-    if (item.type === "precipitation") {
-      precipitations.push(
-        Precipitation(
-          item.time,
-          item.place,
-          item.value,
-          item.type,
-          item.unit,
-          item.precipitation_type
-        )
-      );
-    }
-  });
-
-  for (let index = 0; index < 24; index++) {
-    let precip;
-    precip = precipitations.pop();
-    precip.convertToMM();
-    measurements.push(precip.getValue());
+  function reqListener() {
+    console.log(this.responseText);
   }
 
-  displayTotalPrecipitation(measurements, unit);
+  const request = new XMLHttpRequest();
+  request.addEventListener("load", reqListener);
+  request.open("GET", `${url}/data/${city}`);
+  request.responseType = "text";
+  request.onload = () => {
+    if (request.readyState === request.DONE && request.status === 200) {
+      const result = request.response;
+      const json = JSON.parse(result);
+
+      json.map((item) => {
+        if (item.type === "precipitation") {
+          precipitations.push(
+            Precipitation(
+              item.time,
+              item.place,
+              item.value,
+              item.type,
+              item.unit,
+              item.precipitation_type
+            )
+          );
+        }
+      });
+
+      for (let index = 0; index < 24; index++) {
+        let precip;
+        precip = precipitations.pop();
+        precip.convertToMM();
+        measurements.push(precip.getValue());
+      }
+
+      displayTotalPrecipitation(measurements, unit);
+    }
+  };
+
+  request.send();
 }
 
 function displayTotalPrecipitation(measurements, unit) {

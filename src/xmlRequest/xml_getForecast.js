@@ -7,12 +7,6 @@ async function getForecast(url, city) {
   let precipitations = [];
   let windSpeeds = [];
 
-  /*  const result = await fetch(`${url}/forecast/${city}`, {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-    },
-  });*/
   function reqListener() {
     console.log(this.responseText);
   }
