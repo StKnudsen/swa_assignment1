@@ -1,9 +1,9 @@
-import getForecast from "./getForecast";
-import getLatestMeasurements from "./getLatestMeasurements";
-import getMinTemperature from "./getMinTemperature";
-import getMaxTemperature from "./getMaxTemperature";
-import getTotalPrecipitation from "./getTotalPrecipitation";
-import getAverageWindSpeeds from "./getAverageWindSpeeds";
+import getForecast from "./fetch/getForecast";
+import getLatestMeasurements from "./fetch/getLatestMeasurements";
+import getMinTemperature from "./fetch/getMinTemperature";
+import getMaxTemperature from "./fetch/getMaxTemperature";
+import getTotalPrecipitation from "./fetch/getTotalPrecipitation";
+import getAverageWindSpeeds from "./fetch/getAverageWindSpeeds";
 
 const city = document.querySelector("#city");
 const url = "http://localhost:8080";

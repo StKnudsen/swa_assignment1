@@ -1,4 +1,4 @@
-import Wind from "./models/Wind";
+import Wind from "../models/Wind";
 
 async function getAverageWindSpeeds(url, city) {
   let windSpeeds = [];

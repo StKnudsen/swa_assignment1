@@ -1,6 +1,6 @@
-import TemperaturePrediction from "./models/TemperaturePrediction";
-import PrecipitationPrediction from "./models/PrecipitationPrediction";
-import WindPrediction from "./models/WindPrediction";
+import TemperaturePrediction from "../models/TemperaturePrediction";
+import PrecipitationPrediction from "../models/PrecipitationPrediction";
+import WindPrediction from "../models/WindPrediction";
 
 async function getForecast(url, city) {
   let temperatures = [];
