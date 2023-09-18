@@ -6,52 +6,60 @@
     <title>Weather assignment 1</title>
   </head>
   <body>
-    
-<div class="topnav">
-  <a href="./index.html">Fetch request version </a>
-  <a href="./oldSchool.html"> XML Request Version</a>
-</div> 
+    <div class="topnav">
+      <a href="./index.html">Fetch request version </a>
+      <a href="./oldSchool.html"> XML Request Version</a>
+    </div> 
 
     <h1>Weather assignment 1</h1>
-
+    
     <form>
       <label for="city">Vælg by:</label>
 
-      <select id="city">
+      <select id="x_city">
         <option value="Horsens">Horsens</option>
         <option value="Aarhus">Aarhus</option>
         <option value="Copenhagen">Copenhagen</option>
       </select>
     </form>
 
-    <h1 id="selectedCity"></h1>
+    <h1 id="x_selectedCity"></h1>
 
     <h2>24 hour forcast</h2>
     <h3>Temperatures</h3>
-    <div id="temperatures"></div>
+    <div id="x_temperatures"></div>
     <h3>Precipitation</h3>
-    <div id="precipitation"></div>
+    <div id="x_precipitation"></div>
     <h3>Wind speeeeeeeeeds</h3>
-    <div id="winds"></div>
-
+    <div id="x_winds"></div>
+<!--
     <h2>Latest measurements</h2>
     <h3>Temperature</h3>
-    <div id="latestTemperature"></div>
+    <div id="x_latestTemperature"></div>
     <h3>Precipitation</h3>
-    <div id="latestPrecipitation"></div>
+    <div id="x_latestPrecipitation"></div>
     <h3>Wind speed</h3>
-    <div id="latestWind"></div>
+    <div id="x_latestWind"></div>
 
     <h2>Min. temperature for the last day</h2>
-    <div id="minTemperature"></div>
+    <div id="x_minTemperature"></div>
 
     <h2>Max. temperature for the last day</h2>
-    <div id="maxTemperature"></div>
+    <div id="x_maxTemperature"></div>
 
     <h2>Total precipitation for the last day</h2>
-    <div id="totalPrecipitation"></div>
+    <div id="x_totalPrecipitation"></div>
 
     <h2>Average wind speeds for the last day</h2>
-    <div id="averageWindSpeeds"></div>
+    <div id="x_averageWindSpeeds"></div>-->
   </body>
+
+  <script type ="text/javascript">
+    window.onload = function() {
+        what();
+        function what(){
+            document.getElementById('x_selectedCity').innerHTML = ' ';
+        };
+    }
+</script>
 </html>
